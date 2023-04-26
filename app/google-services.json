@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "244645824899",
+    "project_id": "het-wapen-van-roosendaal",
+    "storage_bucket": "het-wapen-van-roosendaal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244645824899:android:c02da450b9b76db3a9ceb6",
+        "android_client_info": {
+          "package_name": "com.example.hetwapenvanroosendaal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244645824899-vvlnlnb0f2ijtrsd8lmmoers69ik7mlp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD10zHHiOil1_d9yEig3PoymeSDm7p38Jk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "244645824899-vvlnlnb0f2ijtrsd8lmmoers69ik7mlp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
