@@ -34,10 +34,12 @@ class HomeFragment : Fragment() {
 
         val db = Firebase.firestore
 
+        //Set the header texts of the page
         _binding!!.homeHeader.pageTitle.text = requireContext().getString(R.string.home)
         _binding!!.homeHeader.pageDescription.text = requireContext().getString(R.string.home_description)
 
-        val gridLayout = binding.myGridLayout
+        //Get the gridLayout
+        val gridLayout = binding.gridBeer
 
         // Set the number of columns of the grid layout to 2
         gridLayout.columnCount = 2
@@ -54,9 +56,11 @@ class HomeFragment : Fragment() {
                     val beerNameTextView = beerItemView.findViewById<TextView>(R.id.beer_name)
                     beerNameTextView.text = document.data["name"].toString()
 
+                    // Set the beer description TextView to the description of the beer from the document
                     val beerDescTextView = beerItemView.findViewById<TextView>(R.id.beer_description)
                     beerDescTextView.text = document.data["description"].toString()
 
+                    // Set the beer ImageView to the image of the beer from the document
                     val beerImageView = beerItemView.findViewById<ImageView>(R.id.beer_image)
                     val imageResourceName = document.data["image"].toString()
                     val imageResourceId = resources.getIdentifier(imageResourceName, "drawable", requireContext().packageName)
