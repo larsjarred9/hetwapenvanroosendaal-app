@@ -7,40 +7,64 @@
     android:background="@color/brown"
     tools:context=".ui.home.HomeFragment">
 
-    <include
-        layout="@layout/header"
-        android:id="@+id/homeHeader"
+    <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <GridLayout
-        android:id="@+id/myGridLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginEnd="22dp"
-        android:columnCount="2"
-        android:orientation="horizontal"
-        android:rowCount="2"
-        android:useDefaultMargins="true"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.447">
-    </GridLayout>
+        tools:ignore="ScrollViewCount,SpeakableTextPresentCheck">
 
-    <include
-        android:id="@+id/bottomNtf"
-        layout="@layout/bottom_ntf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/homeHeader"
-        app:layout_constraintVertical_bias="0.863" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/homeHeader"
+                layout="@layout/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <GridLayout
+                android:id="@+id/myGridLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="25dp"
+                android:columnCount="2"
+                android:orientation="horizontal"
+                android:rowCount="2"
+                android:useDefaultMargins="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.447" />
+
+            <include
+                android:id="@+id/bottomNtf"
+                layout="@layout/bottom_ntf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/homeHeader"
+                app:layout_constraintVertical_bias="0.863" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
