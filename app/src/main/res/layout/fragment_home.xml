@@ -7,55 +7,11 @@
     android:background="@color/brown"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/tvPageTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="11dp"
-        android:fontFamily="@font/oswald_bold"
-        android:text="@string/home"
-        android:textColor="@color/white"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.007" />
-
-    <TextView
-        android:id="@+id/tvPageDescription"
-        android:layout_width="244dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/je_bent_altijd_welkom_in_het_beste_biercaf_van_west_brabant"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPageTitle"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="TextSizeCheck" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="94dp"
-        android:layout_height="104dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="15dp"
-        android:contentDescription="@string/logo_wapen"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.996"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.008" />
+    <include
+        layout="@layout/header"
+        android:id="@+id/homeHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <GridLayout
         android:id="@+id/myGridLayout"
@@ -73,9 +29,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.447">
-
-
     </GridLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,6 +34,9 @@ class HomeFragment : Fragment() {
 
         val db = Firebase.firestore
 
+        _binding!!.homeHeader.pageTitle.text = requireContext().getString(R.string.home)
+        _binding!!.homeHeader.pageDescription.text = requireContext().getString(R.string.home_description)
+
         val gridLayout = binding.myGridLayout
 
         // Set the number of columns of the grid layout to 2
