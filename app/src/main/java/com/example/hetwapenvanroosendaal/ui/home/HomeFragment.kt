@@ -1,13 +1,15 @@
 package com.example.hetwapenvanroosendaal.ui.home
 
-import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
+import com.example.hetwapenvanroosendaal.R
 import com.example.hetwapenvanroosendaal.databinding.FragmentHomeBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -29,17 +31,30 @@ class HomeFragment : Fragment() {
 
         val db = Firebase.firestore
 
+        val gridLayout = binding.myGridLayout
+
         db.collection("beers")
             .limit(4)
             .get()
             .addOnSuccessListener { result ->
-                val beers = result.documents
-                val recyclerView = _binding!!.myRecyclerView
-                recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-                recyclerView.adapter = BeerAdapter(beers)
+                for (document in result) {
+                    // Inflate a new instance of the beer_item.xml layout
+                    val beerItemView = layoutInflater.inflate(R.layout.item_beer, gridLayout, false)
+
+                    // Set the beer name TextView to the name of the beer from the document
+                    val beerNameTextView = beerItemView.findViewById<TextView>(R.id.beer_name)
+                    beerNameTextView.text = document.data["name"].toString()
+
+                    // Set the beer image ImageView to a placeholder image
+                    val beerImageView = beerItemView.findViewById<ImageView>(R.id.beer_image)
+                    beerImageView.setImageResource(R.drawable.logo)
+
+                    // Add the beer item view to the grid layout
+                    gridLayout.addView(beerItemView)
+                }
             }
             .addOnFailureListener { exception ->
-                Log.w(ContentValues.TAG, "Error getting documents.", exception)
+                Log.w(TAG, "Error getting documents.", exception)
             }
 
         return binding.root
