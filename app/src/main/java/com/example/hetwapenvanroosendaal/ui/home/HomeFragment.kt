@@ -51,13 +51,19 @@ class HomeFragment : Fragment() {
                     val beerNameTextView = beerItemView.findViewById<TextView>(R.id.beer_name)
                     beerNameTextView.text = document.data["name"].toString()
 
+                    val beerDescTextView = beerItemView.findViewById<TextView>(R.id.beer_description)
+                    beerDescTextView.text = document.data["description"].toString()
+
                     val beerImageView = beerItemView.findViewById<ImageView>(R.id.beer_image)
                     val imageResourceName = document.data["image"].toString()
                     val imageResourceId = resources.getIdentifier(imageResourceName, "drawable", requireContext().packageName)
                     beerImageView.setImageResource(imageResourceId)
 
                     // Set the width of the beer item view to take up half the width of the grid layout
-                    val layoutParams = GridLayout.LayoutParams(GridLayout.spec(GridLayout.UNDEFINED, 1f), GridLayout.spec(GridLayout.UNDEFINED, 1f))
+                    val layoutParams = GridLayout.LayoutParams(
+                        GridLayout.spec(GridLayout.UNDEFINED, 1f),
+                        GridLayout.spec(GridLayout.UNDEFINED, 1f))
+
                     layoutParams.width = 0
                     beerItemView.layoutParams = layoutParams
 

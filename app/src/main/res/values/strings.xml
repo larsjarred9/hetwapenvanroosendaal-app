@@ -6,4 +6,6 @@
     <string name="home">HOME</string>
     <string name="je_bent_altijd_welkom_in_het_beste_biercaf_van_west_brabant">Je bent altijd welkom in het beste biercafé van West-Brabant.</string>
     <string name="logo_wapen">Logo Wapen</string>
+    <string name="beer_image">beer_image</string>
+    <string name="empty">Empty</string>
 </resources>
