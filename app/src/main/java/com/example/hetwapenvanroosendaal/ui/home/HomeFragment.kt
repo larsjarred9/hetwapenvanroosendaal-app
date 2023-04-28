@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.hetwapenvanroosendaal.databinding.FragmentHomeBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -32,17 +33,18 @@ class HomeFragment : Fragment() {
             .limit(4)
             .get()
             .addOnSuccessListener { result ->
-                for (document in result) {
-                    Log.d(ContentValues.TAG, "${document.id} => ${document.data["name"]}")
-                }
+                val beers = result.documents
+                val recyclerView = _binding!!.myRecyclerView
+                recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+                recyclerView.adapter = BeerAdapter(beers)
             }
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents.", exception)
             }
 
-
         return binding.root
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
