@@ -1,11 +1,13 @@
 package com.example.hetwapenvanroosendaal.ui.home
 
+import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.GridLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -22,6 +24,7 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    @SuppressLint("DiscouragedApi")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,6 +35,9 @@ class HomeFragment : Fragment() {
         val db = Firebase.firestore
 
         val gridLayout = binding.myGridLayout
+
+        // Set the number of columns of the grid layout to 2
+        gridLayout.columnCount = 2
 
         db.collection("beers")
             .limit(4)
@@ -45,9 +51,15 @@ class HomeFragment : Fragment() {
                     val beerNameTextView = beerItemView.findViewById<TextView>(R.id.beer_name)
                     beerNameTextView.text = document.data["name"].toString()
 
-                    // Set the beer image ImageView to a placeholder image
                     val beerImageView = beerItemView.findViewById<ImageView>(R.id.beer_image)
-                    beerImageView.setImageResource(R.drawable.logo)
+                    val imageResourceName = document.data["image"].toString()
+                    val imageResourceId = resources.getIdentifier(imageResourceName, "drawable", requireContext().packageName)
+                    beerImageView.setImageResource(imageResourceId)
+
+                    // Set the width of the beer item view to take up half the width of the grid layout
+                    val layoutParams = GridLayout.LayoutParams(GridLayout.spec(GridLayout.UNDEFINED, 1f), GridLayout.spec(GridLayout.UNDEFINED, 1f))
+                    layoutParams.width = 0
+                    beerItemView.layoutParams = layoutParams
 
                     // Add the beer item view to the grid layout
                     gridLayout.addView(beerItemView)
@@ -59,6 +71,7 @@ class HomeFragment : Fragment() {
 
         return binding.root
     }
+
 
 
     override fun onDestroyView() {
