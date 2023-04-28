@@ -23,6 +23,7 @@
         android:fontFamily="@font/oswald_bold"
         android:text="@string/empty"
         android:textColor="@color/white"
+        android:layout_marginBottom="5dp"
         android:textSize="20sp" />
 
     <TextView
@@ -32,5 +33,6 @@
         android:fontFamily="@font/roboto"
         android:text="@string/empty"
         android:textColor="@color/white"
+        android:layout_marginBottom="20dp"
         android:textSize="11sp" />
 </LinearLayout>
