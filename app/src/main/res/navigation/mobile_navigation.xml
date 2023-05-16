@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/navigation_login"
         android:name="com.example.hetwapenvanroosendaal.ui.login.LoginFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_login"
         tools:layout="@layout/fragment_login" />
 
     <fragment
@@ -22,4 +22,8 @@
         android:name="com.example.hetwapenvanroosendaal.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_register"
+        android:name="com.example.hetwapenvanroosendaal.ui.login.RegisterFragment"
+        android:label="@string/title_register" />
 </navigation>

@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Hetwapenvanroosendaal</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_login">Dashboard</string>
+    <string name="title_register">Register</string>
     <string name="title_notifications">Notifications</string>
     <string name="home">HOME</string>
     <string name="home_description">Je bent altijd welkom in het beste biercafé van West-Brabant.</string>
