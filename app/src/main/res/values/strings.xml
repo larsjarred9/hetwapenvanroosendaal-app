@@ -5,6 +5,8 @@
     <string name="title_notifications">Notifications</string>
     <string name="home">HOME</string>
     <string name="home_description">Je bent altijd welkom in het beste biercafé van West-Brabant.</string>
+    <string name="login">LOGIN</string>
+    <string name="login_description">Vul de onderstaande gegevens om verder te gaan.</string>
     <string name="logo_wapen">Logo Wapen</string>
     <string name="beer_image">beer_image</string>
     <string name="empty">Empty</string>
