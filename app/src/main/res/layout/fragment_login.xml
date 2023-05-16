@@ -64,6 +64,13 @@
                     android:textColor="@color/white"
                     android:layout_marginLeft="500px"
                     android:text="Login" />
+
+                <TextView
+                    android:id="@+id/registerLink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50px"
+                    android:text="Nog geen account?" />
             </LinearLayout>
 
             <include

@@ -36,6 +36,12 @@ class LoginFragment : Fragment() {
         _binding!!.homeHeader.pageTitle.text = requireContext().getString(R.string.login)
         _binding!!.homeHeader.pageDescription.text = requireContext().getString(R.string.login_description)
 
+        // on click listener for the registerLink
+        _binding!!.registerLink.setOnClickListener {
+
+            // @TODO: Redirect to the register fragment
+
+        }
 
         // on click listener for the login button
         _binding!!.loginBtn.setOnClickListener {
