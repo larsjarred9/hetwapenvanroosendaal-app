@@ -31,12 +31,20 @@ class BeerFragment : Fragment() {
     ): View {
         _binding = FragmentBeerBinding.inflate(inflater, container, false)
 
+        //Set the header texts of the page
+        _binding!!.header.pageTitle.text = requireContext().getString(R.string.beer)
+        _binding!!.header.pageDescription.text = requireContext().getString(R.string.beer_description)
+
+        //Get webview by ID
         val webView = binding.root.findViewById<WebView>(R.id.beerWebView)
 
+        //Override function when link is clicked withing webview
         webView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
+                //Get url
                 val url = request.url?.toString()
                 try {
+                    //Open browser with the url
                     url?.let {
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(it))
                         startActivity(intent)
@@ -48,7 +56,7 @@ class BeerFragment : Fragment() {
             }
         }
 
-        // Enable JavaScript (optional)
+        // Enable JavaScript
         webView.settings.javaScriptEnabled = true
 
         // Load the website
