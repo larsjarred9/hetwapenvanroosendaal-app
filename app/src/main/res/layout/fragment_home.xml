@@ -8,7 +8,7 @@
     tools:context=".ui.home.HomeFragment">
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/mainScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="15dp"

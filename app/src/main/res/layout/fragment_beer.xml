@@ -7,8 +7,8 @@
     android:background="@color/brown"
     tools:context=".ui.beer.BeerFragment">
 
-    <ScrollView
-        android:id="@+id/scrollView2"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/mainScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="15dp"
@@ -34,12 +34,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <WebView
-                android:id="@+id/beerWebView"
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/webViewScroll"
                 android:layout_width="match_parent"
                 android:layout_height="425dp"
                 android:layout_marginTop="35dp"
-                android:layout_marginBottom="35dp" />
+                android:layout_marginBottom="35dp">
+
+                <WebView
+                    android:id="@+id/beerWebView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp" />
+
+            </androidx.core.widget.NestedScrollView>
 
             <include
                 android:id="@+id/bottomNtf"
@@ -55,6 +64,6 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
