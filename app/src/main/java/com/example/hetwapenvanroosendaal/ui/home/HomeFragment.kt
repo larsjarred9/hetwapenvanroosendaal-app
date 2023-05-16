@@ -2,7 +2,11 @@ package com.example.hetwapenvanroosendaal.ui.home
 
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +19,8 @@ import com.example.hetwapenvanroosendaal.R
 import com.example.hetwapenvanroosendaal.databinding.FragmentHomeBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.lang.Exception
+import java.util.concurrent.Executors
 
 class HomeFragment : Fragment() {
 
@@ -62,9 +68,34 @@ class HomeFragment : Fragment() {
 
                     // Set the beer ImageView to the image of the beer from the document
                     val beerImageView = beerItemView.findViewById<ImageView>(R.id.beer_image)
-                    val imageResourceName = document.data["image"].toString()
-                    val imageResourceId = resources.getIdentifier(imageResourceName, "drawable", requireContext().packageName)
-                    beerImageView.setImageResource(imageResourceId)
+
+                    //Init executor
+                    val executor = Executors.newSingleThreadExecutor()
+                    //Init handler
+                    val handler = Handler(Looper.getMainLooper())
+                    //Init image bitmap
+                    var image:Bitmap?
+
+                    //Run execute
+                    executor.execute{
+                        //Get image url from database
+                        val imageUrl = document.data["image"].toString()
+
+                        try {
+                            //Open the url
+                            val `in` = java.net.URL(imageUrl).openStream()
+                            //Decode it and put it in bitmap
+                            image = BitmapFactory.decodeStream(`in`)
+
+                            //Set image view with bitmap
+                            handler.post {
+                                beerImageView.setImageBitmap(image)
+                            }
+
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
+                    }
 
                     // Set the width of the beer item view to take up half the width of the grid layout
                     val layoutParams = GridLayout.LayoutParams(
