@@ -12,6 +12,8 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.hetwapenvanroosendaal.R
 import com.example.hetwapenvanroosendaal.databinding.FragmentRegisterBinding
+import com.google.firebase.firestore.FirebaseFirestore
+import org.json.JSONObject
 import java.net.URLEncoder
 
 class RegisterFragment : Fragment() {
@@ -52,9 +54,28 @@ class RegisterFragment : Fragment() {
             val stringRequest = object : StringRequest(
                 Method.POST, url,
                 { response ->
-                    // Handle the response
-                    println(response)
-                    // Process the response data
+                    Log.e(VolleyLog.TAG, response.toString())
+                    // firestore db instance
+                    val db = FirebaseFirestore.getInstance()
+
+                    // create a new user in the firestore db
+                    val user = hashMapOf(
+                        "firstName" to firstName,
+                        "lastName" to lastName,
+                        "email" to email
+                    )
+
+                    // get the user id from the response
+                    val userId = JSONObject(response).getJSONObject("data").getJSONObject("token").getInt("tokenable_id")
+
+                    // add the user to the firestore db with the user id as the document id
+                    db.collection("users").document(userId.toString())
+                        .set(user)
+                        .addOnSuccessListener {
+
+                            // @TODO: redirect user to the login page after successful registration
+                        }
+                        .addOnFailureListener { e -> Log.w("RegisterFragment", "Error creating user values", e) }
                 },
                 { error ->
                     println(error)
