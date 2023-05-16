@@ -1,18 +1,17 @@
 package com.example.hetwapenvanroosendaal.ui.login
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.android.volley.VolleyLog.TAG
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.hetwapenvanroosendaal.MainActivity
 import com.example.hetwapenvanroosendaal.R
 import com.example.hetwapenvanroosendaal.databinding.FragmentLoginBinding
+import org.json.JSONObject
 import java.net.URLEncoder
 
 class LoginFragment : Fragment() {
@@ -36,6 +35,18 @@ class LoginFragment : Fragment() {
         _binding!!.homeHeader.pageTitle.text = requireContext().getString(R.string.login)
         _binding!!.homeHeader.pageDescription.text = requireContext().getString(R.string.login_description)
 
+        // Initialize shared preferences
+        val sharedPref = this.requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+
+        // get user id from shared preferences
+        val userid = (sharedPref.getString("user", "0"))
+
+        // check if user id is set and not empty
+        if (userid != null && userid != "0") {
+
+            // @TODO: If the user is already logged in, redirect to the savings fragment
+        }
+
         // on click listener for the registerLink
         _binding!!.registerLink.setOnClickListener {
 
@@ -46,8 +57,6 @@ class LoginFragment : Fragment() {
         // on click listener for the login button
         _binding!!.loginBtn.setOnClickListener {
 
-            Log.e(TAG, "Button is clicked")
-
             val url = "https://hetwapen.projects.adainforma.tk/api/v1/login"
             val email = binding.emailField.text.toString()
             val password = binding.passwordFielkd.text.toString()
@@ -56,9 +65,15 @@ class LoginFragment : Fragment() {
 
             val stringRequest = object : StringRequest(Method.POST, url,
                 { response ->
-                    // Handle the response
-                    println(response)
-                    // Process the response data
+                    // Get the user id from a successful login
+                    val jsonResponse = JSONObject(response)
+                    val userId = jsonResponse.getJSONObject("data").getJSONObject("user").getInt("id")
+
+                    // Set the user id in shared preferences
+                    val editor = sharedPref.edit()
+                    editor.remove("userId") // Make sure to remove the old user id if it exists
+                    editor.putString("user", userId.toString()) // Add the user id
+                    editor.apply()
                 },
                 { error ->
                     println(error)
