@@ -40,6 +40,24 @@
                 android:orientation="vertical">
 
                 <EditText
+                    android:id="@+id/firstNameField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_marginBottom="50px"
+                    android:inputType="text"
+                    android:text="Voornaam" />
+
+                <EditText
+                    android:id="@+id/lastNameField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_marginBottom="50px"
+                    android:inputType="text"
+                    android:text="Achternaam" />
+
+                <EditText
                     android:id="@+id/emailField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
