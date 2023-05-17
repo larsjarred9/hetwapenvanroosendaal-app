@@ -4,6 +4,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_beer">Bierkaart</string>
     <string name="home">HOME</string>
+    <string name="info">INFORMATIE</string>
     <string name="beer">BIERKAART</string>
     <string name="home_description">Je bent altijd welkom in het beste biercafé van West-Brabant.</string>
     <string name="beer_description">Van licht en verfrissend tot donker en rijk, er is een bier voor elke smaak en stemming.</string>
@@ -12,4 +13,5 @@
     <string name="empty">Empty</string>
     <string name="vaste_gast">VASTE GAST?</string>
     <string name="bottom_notification">Sluit nu je favoriete bierabonnement af bij je favoriete café en geniet elke maand van de beste bieren met onze handige app! Klik hier om direct te beginnen.</string>
+    <string name="info_description">Informatie &amp; geschiedenis van Het Wapen uitgelicht.</string>
 </resources>
