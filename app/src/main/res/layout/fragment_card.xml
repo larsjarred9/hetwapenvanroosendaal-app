@@ -40,46 +40,48 @@
                 android:orientation="vertical"
                 tools:ignore="PxUsage">
 
-                <EditText
-                    android:id="@+id/emailField"
+                <ImageView
+                    android:id="@+id/barcode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingTop="55px"
+                    android:paddingBottom="30px"
+                    android:background="@color/white"
                     android:layout_marginBottom="50px"
-                    android:ems="10"
-                    android:hint="@string/email"
-                    android:importantForAutofill="no"
-                    android:inputType="textEmailAddress"
-                    android:minHeight="48dp"
-                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+                    app:srcCompat="@drawable/barcode" />
 
-                <EditText
-                    android:id="@+id/passwordFielkd"
+                <TextView
+                    android:id="@+id/subscriptionInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="200px"
+                    android:textColor="@color/white"
+                    android:text="Je hebt nog recht op 4 biertjes tijdens deze abonnements periode." />
+
+                <TextView
+                    android:id="@+id/periodHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PERIODE"
+                    android:fontFamily="@font/oswald_bold"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/periodTxt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="50px"
-                    android:ems="10"
-                    android:hint="@string/pass"
-                    android:importantForAutofill="no"
-                    android:inputType="textPassword"
-                    android:minHeight="48dp"
-                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+                    android:text="Je abonnement is geldig tot 30-03-2024. De volgende periode gaat in over 13 dagen."
+                    android:textColor="@color/white" />
 
                 <Button
-                    android:id="@+id/loginBtn"
-                    android:layout_width="match_parent"
+                    android:id="@+id/periodBtn"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="500px"
-                    android:text="@string/log"
+                    android:text="@string/extend_period"
                     android:textColor="@color/white"
                     tools:ignore="RtlHardcoded,TextContrastCheck,VisualLintButtonSize" />
 
-                <TextView
-                    android:id="@+id/registerLink"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50px"
-                    android:text="@string/nog_geen_account"
-                    tools:ignore="TextContrastCheck" />
             </LinearLayout>
 
             <include
