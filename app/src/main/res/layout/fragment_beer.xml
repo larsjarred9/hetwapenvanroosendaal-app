@@ -5,16 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/brown"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.beer.BeerFragment">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/mainScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -25,30 +25,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="WebViewLayout">
 
             <include
-                android:id="@+id/homeHeader"
+                android:id="@+id/header"
                 layout="@layout/header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <GridLayout
-                android:id="@+id/gridBeer"
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/webViewScroll"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="425dp"
                 android:layout_marginTop="35dp"
-                android:layout_marginBottom="25dp"
-                android:columnCount="2"
-                android:orientation="horizontal"
-                android:rowCount="2"
-                android:useDefaultMargins="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.447" />
+                android:layout_marginBottom="35dp">
+
+                <WebView
+                    android:id="@+id/beerWebView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp" />
+
+            </androidx.core.widget.NestedScrollView>
 
             <include
                 android:id="@+id/bottomNtf"
@@ -64,7 +64,6 @@
 
         </LinearLayout>
 
-    </ScrollView>
-
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
