@@ -12,14 +12,21 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_beermenu"
         android:name="com.example.hetwapenvanroosendaal.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_beer"
-        android:name="com.example.hetwapenvanroosendaal.ui.beer.BeerFragment"
-        android:label="@string/title_beer"
-        tools:layout="@layout/fragment_beer" />
+        android:id="@+id/navigation_savingscard"
+        android:name="com.example.hetwapenvanroosendaal.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+  
+    <fragment
+        android:id="@+id/navigation_information"
+        android:name="com.example.hetwapenvanroosendaal.Information"
+        android:label="fragment_information"
+        tools:layout="@layout/fragment_information" />
+
 </navigation>
