@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.android.volley.VolleyLog
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -43,7 +44,7 @@ class RegisterFragment : Fragment() {
 
             Log.e(VolleyLog.TAG, "Button is clicked")
 
-            val url = "https://hetwapen.projects.adainforma.tk/api/v1/login"
+            val url = "https://hetwapen.projects.adainforma.tk/api/v1/register"
             val firstName = binding.firstNameField.text.toString()
             val lastName = binding.lastNameField.text.toString()
             val email = binding.emailField.text.toString()
@@ -73,7 +74,8 @@ class RegisterFragment : Fragment() {
                         .set(user)
                         .addOnSuccessListener {
 
-                            // @TODO: redirect user to the login page after successful registration
+                            // redirect user to the login page after successful registration
+                            findNavController().navigate(R.id.action_RegisterFragment_to_LoginFragment)
                         }
                         .addOnFailureListener { e -> Log.w("RegisterFragment", "Error creating user values", e) }
                 },
@@ -87,8 +89,8 @@ class RegisterFragment : Fragment() {
 
                 override fun getBody(): ByteArray {
                     val params = HashMap<String, String>()
-                    params["firstName"] = firstName
-                    params["lastName"] = lastName
+                    params["first_name"] = firstName
+                    params["last_name"] = lastName
                     params["email"] = email
                     params["password"] = password
                     params["password_confirmation"] = password
