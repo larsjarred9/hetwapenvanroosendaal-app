@@ -2,8 +2,8 @@
     <string name="app_name">Hetwapenvanroosendaal</string>
     <string name="title_home">Home</string>
     <string name="title_register">Register</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_login">Login</string>
+    <string name="title_information">Informatie</string>
     <string name="spaarkaart">Spaarkaart</string>
     <string name="beermenu">Beermenu</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -22,4 +22,13 @@
     <string name="bottom_notification">Sluit nu je favoriete bierabonnement af bij je favoriete café en geniet elke maand van de beste bieren met onze handige app! Klik hier om direct te beginnen.</string>
     <string name="register">REGISTREREN</string>
     <string name="register_description">Vul de onderstaande gegevens om verder te gaan.</string>
+    <string name="voornaam">Voornaam</string>
+    <string name="achternaam">Achternaam</string>
+    <string name="emailadres">Emailadres</string>
+    <string name="wachtwoord">Wachtwoord</string>
+    <string name="registreren">Registreren</string>
+    <string name="email">Emailadres</string>
+    <string name="pass">Wachtwoord</string>
+    <string name="log">Login</string>
+    <string name="nog_geen_account">Nog geen account?</string>
 </resources>
