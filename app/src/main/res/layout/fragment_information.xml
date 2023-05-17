@@ -136,7 +136,7 @@
                 android:text="Het is allemaal begonnen met tante Jopie en Pierre. Zij toverden in 1970 Hotel Hermans om tot Biljartcafé het Wapen van Roosendaal. Toen in 1986 naast Henri ook Anja als vennoot in het bedrijf kwam, besloten Jopie en Pierre ermee te stoppen.\nHenri en Anja sloegen vanaf dat moment een andere weg in. Ze besloten minder met eten te gaan doen en er meer een café van te maken. In 2002 werd er een grote aanbouw geplaatst om biljarters meer plek te geven en een feestzaal en voorraadruimte te creëren.\n\nNa vanaf haar veertiende bij haar ouders in het café gewerkt te hebben, werd Maaike in 2007 mede-eigenaar."
                 android:textColor="@color/white"
                 android:textSize="10dp"
-                android:paddingBottom="16dp"/>
+                android:paddingBottom="32dp"/>
 
             <include
                 android:id="@+id/bottomNtf"
