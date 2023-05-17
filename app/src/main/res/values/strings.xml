@@ -2,9 +2,18 @@
     <string name="app_name">Hetwapenvanroosendaal</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="spaarkaart">Spaarkaart</string>
     <string name="beermenu">Beermenu</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_beer">Bierkaart</string>
+    <string name="home">HOME</string>
+    <string name="beer">BIERKAART</string>
+    <string name="home_description">Je bent altijd welkom in het beste biercafé van West-Brabant.</string>
+    <string name="beer_description">Van licht en verfrissend tot donker en rijk, er is een bier voor elke smaak en stemming.</string>
+    <string name="logo_wapen">Logo Wapen</string>
+    <string name="beer_image">beer_image</string>
+    <string name="empty">Empty</string>
+    <string name="vaste_gast">VASTE GAST?</string>
+    <string name="bottom_notification">Sluit nu je favoriete bierabonnement af bij je favoriete café en geniet elke maand van de beste bieren met onze handige app! Klik hier om direct te beginnen.</string>
 </resources>
