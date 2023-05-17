@@ -17,9 +17,10 @@
         android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="ScrollViewCount,SpeakableTextPresentCheck">
 
         <LinearLayout
@@ -32,6 +33,48 @@
                 layout="@layout/header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="176dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/barimage" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="32dp"
+                    android:paddingTop="24dp">
+
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/oswald_bold"
+                        android:paddingBottom="4dp"
+                        android:text="OPENINGSTIJDEN"
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="116dp"
+                        android:text="Ma:    09.30u – 02.00\nDi:      Gesloten\nWoe:  09.30u – 02.00\nDo:     09.30u – 02.00\nVrij:    09.30u – 02.00\nZa:     09.30u – 02.00\nZo:     09.30u – 02.00"
+                        android:textColor="@color/white"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <GridLayout
                 android:id="@+id/gridBeer"
