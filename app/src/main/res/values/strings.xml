@@ -4,6 +4,7 @@
     <string name="title_register">Register</string>
     <string name="title_login">Login</string>
     <string name="title_information">Informatie</string>
+    <string name="title_subscription">Abonnement</string>
     <string name="spaarkaart">Spaarkaart</string>
     <string name="beermenu">Beermenu</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -11,10 +12,12 @@
     <string name="title_beer">Bierkaart</string>
     <string name="home">HOME</string>
     <string name="beer">BIERKAART</string>
+    <string name="subscription">ABONNEMENT</string>
     <string name="home_description">Je bent altijd welkom in het beste biercafé van West-Brabant.</string>
     <string name="login">LOGIN</string>
     <string name="login_description">Vul de onderstaande gegevens om verder te gaan.</string>
     <string name="beer_description">Van licht en verfrissend tot donker en rijk, er is een bier voor elke smaak en stemming.</string>
+    <string name="subscription_description">Sluit vandaag nog een bierabonnement af en geniet van hoge kortingen op onze bieren.</string>
     <string name="logo_wapen">Logo Wapen</string>
     <string name="beer_image">beer_image</string>
     <string name="empty">Empty</string>
