@@ -28,5 +28,5 @@
         android:name="com.example.hetwapenvanroosendaal.Information"
         android:label="fragment_information"
         tools:layout="@layout/fragment_information" />
-
+  
 </navigation>
