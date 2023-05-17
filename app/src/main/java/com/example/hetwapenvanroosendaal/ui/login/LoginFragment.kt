@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.hetwapenvanroosendaal.R
@@ -49,9 +50,7 @@ class LoginFragment : Fragment() {
 
         // on click listener for the registerLink
         _binding!!.registerLink.setOnClickListener {
-
-            // @TODO: Redirect to the register fragment
-
+            findNavController().navigate(R.id.action_LoginFragment_to_RegisterFragment)
         }
 
         // on click listener for the login button

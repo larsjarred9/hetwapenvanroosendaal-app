@@ -37,40 +37,49 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="100px"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="PxUsage">
 
                 <EditText
                     android:id="@+id/emailField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
                     android:layout_marginBottom="50px"
-                    android:hint="Emailadres"
-                    android:inputType="textEmailAddress" />
+                    android:ems="10"
+                    android:hint="@string/email"
+                    android:importantForAutofill="no"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="48dp"
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
                 <EditText
                     android:id="@+id/passwordFielkd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Wachtwoord"
                     android:layout_marginBottom="50px"
-                    android:inputType="textPassword" />
+                    android:ems="10"
+                    android:hint="@string/pass"
+                    android:importantForAutofill="no"
+                    android:inputType="textPassword"
+                    android:minHeight="48dp"
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
                 <Button
                     android:id="@+id/loginBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
                     android:layout_marginLeft="500px"
-                    android:text="Login" />
+                    android:text="@string/log"
+                    android:textColor="@color/white"
+                    tools:ignore="RtlHardcoded,TextContrastCheck,VisualLintButtonSize" />
 
                 <TextView
                     android:id="@+id/registerLink"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50px"
-                    android:text="Nog geen account?" />
+                    android:text="@string/nog_geen_account"
+                    tools:ignore="TextContrastCheck" />
             </LinearLayout>
 
             <include
