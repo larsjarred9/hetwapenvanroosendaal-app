@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/navigation_savingscard"
-        android:name="com.example.hetwapenvanroosendaal.ui.login.LoginFragment"
+        android:name="com.example.hetwapenvanroosendaal.ui.login.CardFragment"
         android:label="@string/title_login"
         tools:layout="@layout/fragment_login">
 
