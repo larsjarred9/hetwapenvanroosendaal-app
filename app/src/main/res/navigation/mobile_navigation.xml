@@ -21,7 +21,12 @@
         android:id="@+id/navigation_register"
         android:name="com.example.hetwapenvanroosendaal.ui.login.RegisterFragment"
         android:label="@string/title_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register">
+
+        <action
+            android:id="@+id/action_RegisterFragment_to_LoginFragment"
+            app:destination="@id/navigation_savingscard" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_savingscard"
