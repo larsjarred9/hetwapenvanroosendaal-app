@@ -34,4 +34,8 @@
     <string name="pass">Wachtwoord</string>
     <string name="log">Login</string>
     <string name="nog_geen_account">Nog geen account?</string>
+    <string name="abonneren">Abonneren</string>
+    <string name="abonnement_afsluiten">Abonnement afsluiten</string>
+    <string name="sub_page_photo">sub_page_photo</string>
+    <string name="txt_btw">* Prijzen zijn inclusief 21% BTW</string>
 </resources>
