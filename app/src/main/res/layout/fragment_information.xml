@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/brown"
-    tools:context=".ui.home.InformationFragment">
+    tools:context=".ui.information.InformationFragment">
 
     <ScrollView
         android:id="@+id/mainScroll"
@@ -89,7 +89,7 @@
                     android:paddingLeft="28dp">
 
                     <TextView
-                        android:id="@+id/Headertext1"
+                        android:id="@+id/Headertext2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/oswald_bold"
@@ -100,7 +100,7 @@
 
 
                     <TextView
-                        android:id="@+id/Regulartext1"
+                        android:id="@+id/Regulartext2"
                         android:layout_width="175dp"
                         android:layout_height="wrap_content"
                         android:text="Het Wapen van Roosendaal is al ruim 50 jaar een gezellig modern bruin café in hartje Roosendaal. Een kroeg die voor iedereen wat te bieden heeft. Hele generaties groeiden op in en bij het Wapen, zowel voor als achter de bar!"
@@ -127,22 +127,16 @@
             </LinearLayout>
 
 
-            <GridLayout
-                android:id="@+id/gridBeer"
+            <TextView
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="35dp"
-                android:layout_marginBottom="25dp"
-                android:columnCount="2"
-                android:orientation="horizontal"
-                android:rowCount="2"
-                android:useDefaultMargins="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.447" />
+                android:layout_height="wrap_content"
+                android:paddingLeft="26dp"
+                android:paddingRight="14dp"
+                android:text="Het is allemaal begonnen met tante Jopie en Pierre. Zij toverden in 1970 Hotel Hermans om tot Biljartcafé het Wapen van Roosendaal. Toen in 1986 naast Henri ook Anja als vennoot in het bedrijf kwam, besloten Jopie en Pierre ermee te stoppen.\nHenri en Anja sloegen vanaf dat moment een andere weg in. Ze besloten minder met eten te gaan doen en er meer een café van te maken. In 2002 werd er een grote aanbouw geplaatst om biljarters meer plek te geven en een feestzaal en voorraadruimte te creëren.\n\nNa vanaf haar veertiende bij haar ouders in het café gewerkt te hebben, werd Maaike in 2007 mede-eigenaar."
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                android:paddingBottom="16dp"/>
 
             <include
                 android:id="@+id/bottomNtf"
