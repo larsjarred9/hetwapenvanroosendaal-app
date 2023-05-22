@@ -12,14 +12,37 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.hetwapenvanroosendaal.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
-    <fragment
-        android:id="@+id/navigation_beer"
+        android:id="@+id/navigation_beermenu"
         android:name="com.example.hetwapenvanroosendaal.ui.beer.BeerFragment"
         android:label="@string/title_beer"
         tools:layout="@layout/fragment_beer" />
+
+    <fragment
+        android:id="@+id/navigation_register"
+        android:name="com.example.hetwapenvanroosendaal.ui.login.RegisterFragment"
+        android:label="@string/title_register"
+        tools:layout="@layout/fragment_register">
+
+        <action
+            android:id="@+id/action_RegisterFragment_to_LoginFragment"
+            app:destination="@id/navigation_savingscard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_savingscard"
+        android:name="com.example.hetwapenvanroosendaal.ui.login.LoginFragment"
+        android:label="@string/title_login"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_LoginFragment_to_RegisterFragment"
+            app:destination="@id/navigation_register" />
+    </fragment>
+  
+    <fragment
+        android:id="@+id/navigation_information"
+        android:name="com.example.hetwapenvanroosendaal.ui.information.InformationFragment"
+        android:label="@string/title_information"
+        tools:layout="@layout/fragment_information" />
+  
 </navigation>
