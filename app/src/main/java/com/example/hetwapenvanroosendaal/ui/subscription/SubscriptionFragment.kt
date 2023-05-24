@@ -65,25 +65,27 @@ class SubscriptionFragment : Fragment() {
 
         //Add onclick listener to subscribe button
         _binding!!.subBtn.setOnClickListener {
-            //Save price of clicked image
-            val price : Int = when (selectedImage) {
-                "imgMonth" -> {
-                    77
+            if (selectedImage != null) {
+                //Save price of clicked image
+                val price : Int = when (selectedImage) {
+                    "imgMonth" -> {
+                        77
+                    }
+                    "imgQuarter" -> {
+                        235
+                    }
+                    else -> {
+                        920
+                    }
                 }
-                "imgQuarter" -> {
-                    235
-                }
-                else -> {
-                    920
-                }
+
+                //Add price to bundle
+                val b = Bundle()
+                b.putInt("price", price)
+
+                //Switch to payment fragment and pass the bundle
+                findNavController().navigate(R.id.action_subFragment_to_payFragment, b)
             }
-
-            //Add price to bundle
-            val b = Bundle()
-            b.putInt("price", price)
-
-            //Switch to payment fragment and pass the bundle
-            findNavController().navigate(R.id.action_subFragment_to_payFragment, b)
         }
 
         return binding.root
