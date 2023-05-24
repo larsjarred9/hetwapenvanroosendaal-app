@@ -45,7 +45,7 @@ class LoginFragment : Fragment() {
         // check if user id is set and not empty
         if (userid != null && userid != "0") {
 
-            // @TODO: If the user is already logged in, redirect to the savings fragment
+            findNavController().navigate(R.id.action_LoginFragment_to_CardFragment)
         }
 
         // on click listener for the registerLink
@@ -73,6 +73,9 @@ class LoginFragment : Fragment() {
                     editor.remove("userId") // Make sure to remove the old user id if it exists
                     editor.putString("user", userId.toString()) // Add the user id
                     editor.apply()
+
+                    // Redirect to the savings fragment
+                    findNavController().navigate(R.id.action_LoginFragment_to_CardFragment)
                 },
                 { error ->
                     println(error)
