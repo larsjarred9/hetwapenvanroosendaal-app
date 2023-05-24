@@ -22,19 +22,10 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home,
-                R.id.navigation_beermenu,
-                R.id.navigation_savingscard,
-                R.id.navigation_subscription,
-                R.id.navigation_register,
-                R.id.navigation_information
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+
         navView.setupWithNavController(navController)
+
+        // Hide the action bar
+        supportActionBar?.hide()
     }
 }
