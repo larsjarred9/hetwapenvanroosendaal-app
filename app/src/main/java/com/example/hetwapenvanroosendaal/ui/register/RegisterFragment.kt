@@ -38,6 +38,11 @@ class RegisterFragment : Fragment() {
         _binding!!.homeHeader.pageTitle.text = requireContext().getString(R.string.register)
         _binding!!.homeHeader.pageDescription.text = requireContext().getString(R.string.register_description)
 
+        // on click listener for the registerLink
+        _binding!!.loginLink.setOnClickListener {
+            findNavController().navigate(R.id.action_RegisterFragment_to_LoginFragment)
+        }
+
 
         // on click listener for the register button
         _binding!!.loginBtn.setOnClickListener {
