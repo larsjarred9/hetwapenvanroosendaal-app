@@ -32,7 +32,18 @@
         android:id="@+id/navigation_subscription"
         android:name="com.example.hetwapenvanroosendaal.ui.subscription.SubscriptionFragment"
         android:label="@string/title_subscription"
-        tools:layout="@layout/fragment_subscription" />
+        tools:layout="@layout/fragment_subscription" >
+
+        <action
+            android:id="@+id/action_subFragment_to_payFragment"
+            app:destination="@id/navigation_payment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_payment"
+        android:name="com.example.hetwapenvanroosendaal.ui.payment.PaymentFragment"
+        android:label="Betaling"
+        tools:layout="@layout/fragment_payment" />
 
     <fragment
         android:id="@+id/navigation_savingscard"

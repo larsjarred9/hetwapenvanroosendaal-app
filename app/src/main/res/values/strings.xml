@@ -49,4 +49,6 @@
     <string name="jaarlijks">JAARLIJKS</string>
     <string name="sluit_ons_bier_abonnement_per_jaar_af_en_ontvang_een_heel_jaar_lang_elke_maand_16_biertjes_voor_een_vaste_lage_prijs">Sluit ons bier abonnement per jaar af en ontvang een heel jaar lang elke maand 16 biertjes voor een vaste lage prijs.</string>
     <string name="_920">€920</string>
+    <string name="payment">BETALING</string>
+    <string name="paymentDesc">Doorloop de onderstaande stappen om de betaling af te ronden.</string>
 </resources>
