@@ -24,8 +24,8 @@ class PaymentFragment : Fragment() {
         _binding = FragmentPaymentBinding.inflate(inflater, container, false)
 
         //Set the header texts of the page
-        _binding!!.homeHeader.pageTitle.text = requireContext().getString(R.string.subscription)
-        _binding!!.homeHeader.pageDescription.text = requireContext().getString(R.string.subscription_description)
+        _binding!!.homeHeader.pageTitle.text = requireContext().getString(R.string.payment)
+        _binding!!.homeHeader.pageDescription.text = requireContext().getString(R.string.paymentDesc)
 
         val ivPayment = _binding!!.imgPayment
 
