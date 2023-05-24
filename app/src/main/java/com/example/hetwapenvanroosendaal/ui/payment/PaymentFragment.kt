@@ -27,7 +27,19 @@ class PaymentFragment : Fragment() {
         _binding!!.homeHeader.pageTitle.text = requireContext().getString(R.string.subscription)
         _binding!!.homeHeader.pageDescription.text = requireContext().getString(R.string.subscription_description)
 
+        val ivPayment = _binding!!.imgPayment
 
+        when (arguments?.getInt("price")) {
+            77 -> {
+                ivPayment.setImageResource(R.drawable.imgMonth)
+            }
+            235 -> {
+                ivPayment.setImageResource(R.drawable.imgQuarter)
+            }
+            else -> {
+                ivPayment.setImageResource(R.drawable.imgYear)
+            }
+        }
 
         return binding.root
     }
