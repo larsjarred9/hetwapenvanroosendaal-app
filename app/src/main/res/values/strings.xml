@@ -4,6 +4,7 @@
     <string name="title_register">Register</string>
     <string name="title_login">Login</string>
     <string name="title_information">Informatie</string>
+    <string name="title_subscription">Abonnement</string>
     <string name="spaarkaart">Spaarkaart</string>
     <string name="beermenu">Beermenu</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -12,10 +13,12 @@
     <string name="home">HOME</string>
     <string name="info">INFORMATIE</string>
     <string name="beer">BIERKAART</string>
+    <string name="subscription">ABONNEMENT</string>
     <string name="home_description">Je bent altijd welkom in het beste biercafé van West-Brabant.</string>
     <string name="login">LOGIN</string>
     <string name="login_description">Vul de onderstaande gegevens om verder te gaan.</string>
     <string name="beer_description">Van licht en verfrissend tot donker en rijk, er is een bier voor elke smaak en stemming.</string>
+    <string name="subscription_description">Sluit vandaag nog een bierabonnement af en geniet van hoge kortingen op onze bieren.</string>
     <string name="logo_wapen">Logo Wapen</string>
     <string name="beer_image">beer_image</string>
     <string name="empty">Empty</string>
@@ -33,4 +36,17 @@
     <string name="pass">Wachtwoord</string>
     <string name="log">Login</string>
     <string name="nog_geen_account">Nog geen account?</string>
+    <string name="abonneren">Abonneren</string>
+    <string name="abonnement_afsluiten">Abonnement afsluiten</string>
+    <string name="sub_page_photo">sub_page_photo</string>
+    <string name="txt_btw">* Prijzen zijn inclusief 21% BTW</string>
+    <string name="maandelijks">MAANDELIJKS</string>
+    <string name="sluit_ons_bier_abonnement_af_en_ontvang_16_biertjes_voor_een_vaste_lage_prijs">Sluit ons bier abonnement af en ontvang 16 biertjes voor een vaste lage prijs.</string>
+    <string name="kwartaal">KWARTAAL</string>
+    <string name="sluit_ons_bier_abonnement_per_3_maanden_af_en_ontvang_3_maanden_lang16_biertjes_voor_een_vaste_lage_prijs">Sluit ons bier abonnement per 3 maanden af en ontvang 3 maanden lang 16 biertjes voor een vaste lage prijs.</string>
+    <string name="_77">€77</string>
+    <string name="_235">€235</string>
+    <string name="jaarlijks">JAARLIJKS</string>
+    <string name="sluit_ons_bier_abonnement_per_jaar_af_en_ontvang_een_heel_jaar_lang_elke_maand_16_biertjes_voor_een_vaste_lage_prijs">Sluit ons bier abonnement per jaar af en ontvang een heel jaar lang elke maand 16 biertjes voor een vaste lage prijs.</string>
+    <string name="_920">€920</string>
 </resources>

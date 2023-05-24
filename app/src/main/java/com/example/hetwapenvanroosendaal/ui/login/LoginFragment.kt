@@ -31,7 +31,6 @@ class LoginFragment : Fragment() {
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
-
         //Set the header texts of the page
         _binding!!.homeHeader.pageTitle.text = requireContext().getString(R.string.login)
         _binding!!.homeHeader.pageDescription.text = requireContext().getString(R.string.login_description)
@@ -44,8 +43,7 @@ class LoginFragment : Fragment() {
 
         // check if user id is set and not empty
         if (userid != null && userid != "0") {
-
-            // @TODO: If the user is already logged in, redirect to the savings fragment
+            findNavController().navigate(R.id.action_LoginFragment_to_SubFragment)
         }
 
         // on click listener for the registerLink
@@ -73,6 +71,8 @@ class LoginFragment : Fragment() {
                     editor.remove("userId") // Make sure to remove the old user id if it exists
                     editor.putString("user", userId.toString()) // Add the user id
                     editor.apply()
+
+                    findNavController().navigate(R.id.action_LoginFragment_to_SubFragment)
                 },
                 { error ->
                     println(error)
