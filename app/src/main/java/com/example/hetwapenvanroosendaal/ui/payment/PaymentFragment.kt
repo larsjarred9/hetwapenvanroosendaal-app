@@ -27,8 +27,10 @@ class PaymentFragment : Fragment() {
         _binding!!.homeHeader.pageTitle.text = requireContext().getString(R.string.payment)
         _binding!!.homeHeader.pageDescription.text = requireContext().getString(R.string.paymentDesc)
 
+        //Get image view by id
         val ivPayment = _binding!!.imgPayment
 
+        //Set the correct image based on price
         when (arguments?.getInt("price")) {
             77 -> {
                 ivPayment.setImageResource(R.drawable.img_month)
