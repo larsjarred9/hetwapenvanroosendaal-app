@@ -96,6 +96,15 @@
                     android:text="@string/registreren"
                     android:textColor="@color/white"
                     tools:ignore="RtlHardcoded,TextContrastCheck,VisualLintButtonSize" />
+
+                <TextView
+                    android:id="@+id/registerLink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50px"
+                    android:textAlignment="viewEnd"
+                    android:text="@string/wel_account"
+                    tools:ignore="TextContrastCheck" />
             </LinearLayout>
 
             <include
