@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.hetwapenvanroosendaal.R
 import com.example.hetwapenvanroosendaal.components.EAN13Generator
 import com.example.hetwapenvanroosendaal.databinding.FragmentCardBinding
+import com.google.firebase.firestore.FirebaseFirestore
 import java.net.URLEncoder
 
 class CardFragment : Fragment() {
@@ -47,13 +48,25 @@ class CardFragment : Fragment() {
         val barcode = binding.barcode
         val barcodeId = binding.barcodeId
 
-        // Generate image
-        val code = "123456789101"
-        val ean13CodeDrawable = EAN13Generator.generateEAN13Code(this, code)
 
-        // Ser the image
-        barcode.setImageDrawable(ean13CodeDrawable)
-        barcodeId.text = code
+        // firebase firestore get user data by id
+
+        var db = FirebaseFirestore.getInstance()
+
+        db.collection("users").document(userid.toString())
+            .get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    val user = document.data
+                    val code = user?.get("barcode").toString()
+                    val ean13CodeDrawable = EAN13Generator.generateEAN13Code(this, code)
+                    barcode.setImageDrawable(ean13CodeDrawable)
+                    barcodeId.text = code
+                }
+            }
+            .addOnFailureListener { exception ->
+                println("Error getting documents: $exception")
+            }
 
         return binding.root
     }
