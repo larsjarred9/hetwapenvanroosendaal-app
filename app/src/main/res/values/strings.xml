@@ -38,4 +38,8 @@
     <string name="abonnement_afsluiten">Abonnement afsluiten</string>
     <string name="sub_page_photo">sub_page_photo</string>
     <string name="txt_btw">* Prijzen zijn inclusief 21% BTW</string>
+    <string name="maandelijks">MAANDELIJKS</string>
+    <string name="sluit_ons_bier_abonnement_af_en_ontvang_16_biertjes_voor_een_vaste_lage_prijs">Sluit ons bier abonnement af en ontvang 16 biertjes voor een vaste lage prijs.</string>
+    <string name="kwartaal">KWARTAAL</string>
+    <string name="sluit_ons_bier_abonnement_per_3_maanden_af_en_ontvang_3_maanden_lang16_biertjes_voor_een_vaste_lage_prijs">Sluit ons bier abonnement per 3 maanden af en ontvang 3 maanden lang 16 biertjes voor een vaste lage prijs.</string>
 </resources>
