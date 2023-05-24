@@ -2,12 +2,12 @@ package com.example.hetwapenvanroosendaal.ui.subscription
 
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
-import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.hetwapenvanroosendaal.R
 import com.example.hetwapenvanroosendaal.databinding.FragmentSubscriptionBinding
 
@@ -77,6 +77,13 @@ class SubscriptionFragment : Fragment() {
                     920
                 }
             }
+
+            //Add price to bundle
+            val b = Bundle()
+            b.putInt("price", price)
+
+            //Switch to payment fragment and pass the bundle
+            findNavController().navigate(R.id.action_subFragment_to_payFragment, b)
         }
 
         return binding.root
