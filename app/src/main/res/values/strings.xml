@@ -34,4 +34,6 @@
     <string name="card">SPAARKAART</string>
     <string name="card_description">Laat de QR code scannen aan de bar en krijg een biertje naar keuze mee.</string>
     <string name="extend_period">Verlengen</string>
+    <string name="title_card">Spaarkaart</string>
+    <string name="wel_account">Al een account?</string>
 </resources>

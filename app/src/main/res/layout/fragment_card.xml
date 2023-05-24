@@ -40,15 +40,34 @@
                 android:orientation="vertical"
                 tools:ignore="PxUsage">
 
-                <ImageView
-                    android:id="@+id/barcode"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="55px"
-                    android:paddingBottom="30px"
-                    android:background="@color/white"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
                     android:layout_marginBottom="50px"
-                    app:srcCompat="@drawable/barcode" />
+                    android:background="@color/white">
+
+                    <ImageView
+                        android:id="@+id/barcode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="50px"
+                        android:background="@color/white"
+                        android:paddingTop="55px"
+                        app:srcCompat="@drawable/barcode" />
+
+                    <TextView
+                        android:id="@+id/barcodeId"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:text="123456"
+                        android:textSize="50px"
+                        android:textColor="@color/black"
+                        android:paddingBottom="35px"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/subscriptionInfo"

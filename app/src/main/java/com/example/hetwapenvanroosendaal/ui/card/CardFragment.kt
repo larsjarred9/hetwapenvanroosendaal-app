@@ -7,13 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
 import com.example.hetwapenvanroosendaal.R
+import com.example.hetwapenvanroosendaal.components.EAN13Generator
 import com.example.hetwapenvanroosendaal.databinding.FragmentCardBinding
-import com.example.hetwapenvanroosendaal.databinding.FragmentLoginBinding
-import org.json.JSONObject
 import java.net.URLEncoder
 
 class CardFragment : Fragment() {
@@ -43,8 +39,21 @@ class CardFragment : Fragment() {
         val userid = (sharedPref.getString("user", "0"))
 
         // check if user id is set and not empty
-        if (userid != null && userid != "0") {
+        if (userid == null && userid == "0") {
+            // @TODO: If not, navigate to login page
         }
+
+        // Define barcode image view & text
+        val barcode = binding.barcode
+        val barcodeId = binding.barcodeId
+
+        // Generate image
+        val code = "123456789101"
+        val ean13CodeDrawable = EAN13Generator.generateEAN13Code(this, code)
+
+        // Ser the image
+        barcode.setImageDrawable(ean13CodeDrawable)
+        barcodeId.text = code
 
         return binding.root
     }

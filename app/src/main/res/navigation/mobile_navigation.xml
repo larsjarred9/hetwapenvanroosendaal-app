@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_LoginFragment_to_RegisterFragment"
             app:destination="@id/navigation_register" />
+        <action
+            android:id="@+id/action_LoginFragment_to_CardFragment"
+            app:destination="@id/navigation_savingscard" />
     </fragment>
 
     <fragment
@@ -45,8 +48,8 @@
         tools:layout="@layout/fragment_card">
 
         <action
-            android:id="@+id/action_LoginFragment_to_RegisterFragment"
-            app:destination="@id/navigation_register" />
+            android:id="@+id/action_CardFragment_to_LoginFragment"
+            app:destination="@id/navigation_login" />
     </fragment>
   
     <fragment
