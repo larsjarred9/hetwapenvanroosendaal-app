@@ -16,6 +16,7 @@ import com.example.hetwapenvanroosendaal.databinding.FragmentRegisterBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import org.json.JSONObject
 import java.net.URLEncoder
+import java.util.Random
 
 class RegisterFragment : Fragment() {
 
@@ -55,6 +56,8 @@ class RegisterFragment : Fragment() {
             val email = binding.emailField.text.toString()
             val password = binding.passwordFielkd.text.toString()
 
+            val barcode = generateRandomNumber()
+
             val requestQueue = Volley.newRequestQueue(this.requireContext())
 
             val stringRequest = object : StringRequest(
@@ -68,7 +71,8 @@ class RegisterFragment : Fragment() {
                     val user = hashMapOf(
                         "firstName" to firstName,
                         "lastName" to lastName,
-                        "email" to email
+                        "email" to email,
+                        "barcode" to barcode
                     )
 
                     // get the user id from the response
@@ -119,6 +123,20 @@ class RegisterFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    fun generateRandomNumber(): String {
+        val timestamp = System.currentTimeMillis().toString()
+        val random = Random()
+        val stringBuilder = StringBuilder()
+
+        stringBuilder.append(timestamp)
+
+        while (stringBuilder.length < 12) {
+            stringBuilder.append(random.nextInt(10))
+        }
+
+        return stringBuilder.toString().substring(0, 12)
     }
 
     override fun onDestroyView() {
