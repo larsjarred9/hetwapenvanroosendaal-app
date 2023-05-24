@@ -31,13 +31,13 @@ class PaymentFragment : Fragment() {
 
         when (arguments?.getInt("price")) {
             77 -> {
-                ivPayment.setImageResource(R.drawable.imgMonth)
+                ivPayment.setImageResource(R.drawable.img_month)
             }
             235 -> {
-                ivPayment.setImageResource(R.drawable.imgQuarter)
+                ivPayment.setImageResource(R.drawable.img_quarter)
             }
             else -> {
-                ivPayment.setImageResource(R.drawable.imgYear)
+                ivPayment.setImageResource(R.drawable.img_year)
             }
         }
 
