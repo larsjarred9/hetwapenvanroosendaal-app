@@ -75,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="200px"
                     android:textColor="@color/white"
-                    android:text="Je hebt nog recht op 4 biertjes tijdens deze abonnements periode." />
+                    android:text="@string/loading" />
 
                 <TextView
                     android:id="@+id/periodHeading"
@@ -90,14 +90,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="50px"
-                    android:text="Je abonnement is geldig tot 30-03-2024. De volgende periode gaat in over 13 dagen."
+                    android:text="@string/loading"
                     android:textColor="@color/white" />
 
                 <Button
-                    android:id="@+id/periodBtn"
+                    android:id="@+id/logoutBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/extend_period"
+                    android:text="@string/logout"
                     android:textColor="@color/white"
                     tools:ignore="RtlHardcoded,TextContrastCheck,VisualLintButtonSize" />
 

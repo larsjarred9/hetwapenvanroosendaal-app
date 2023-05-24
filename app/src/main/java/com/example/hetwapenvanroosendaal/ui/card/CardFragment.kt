@@ -7,11 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.hetwapenvanroosendaal.R
 import com.example.hetwapenvanroosendaal.components.EAN13Generator
 import com.example.hetwapenvanroosendaal.databinding.FragmentCardBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import java.net.URLEncoder
+import java.time.LocalDate
 
 class CardFragment : Fragment() {
 
@@ -41,18 +43,66 @@ class CardFragment : Fragment() {
 
         // check if user id is set and not empty
         if (userid == null && userid == "0") {
-            // @TODO: If not, navigate to login page
+            findNavController().navigate(R.id.action_CardFragment_to_LoginFragment)
         }
 
-        // Define barcode image view & text
+        // Define period variable
+        var period : String = ""
+
+        // firestore instance
+        var db = FirebaseFirestore.getInstance()
+
+        // Firestore check if users collection has a underlaying subscription collection
+        db.collection("users").document(userid.toString()).collection("subscription")
+            .get()
+            .addOnSuccessListener { documents ->
+                // foreach document in the collection print
+                for (document in documents) {
+
+                    // get the month & startdate from the document
+                    val startDate = document.data["startDate"].toString()
+                    val months = document.data["months"].toString()
+
+                    // Parsing the startDate string into a LocalDate object
+                    val localDate = LocalDate.parse(startDate)
+
+                    // Adding the specified number of months to the startDate
+                    val futureDate = localDate.plusMonths(months.toLong())
+
+                    // Checking if the date is before or equal to the current date
+                    if (futureDate.isBefore(LocalDate.now()) || futureDate.isEqual(LocalDate.now())) {
+                        // do nothing
+                    }
+                    else {
+                        // Set the period variable to the futureDate
+                        period = futureDate.toString()
+                    }
+                }
+            }
+            .addOnFailureListener { exception ->
+                println("Error getting documents: $exception")
+            }
+
+
+        // check if period is not empty @TODO: period is currently empty because the firestore query is async
+        if (period.isNotEmpty()) {
+            var periodTxt = binding.periodTxt
+            periodTxt.text = "Je abonnement is geldig tot " + period + "."
+        }
+        else {
+            // @TODO: Send user to the subscription page to renew their subscription
+        }
+
         val barcode = binding.barcode
         val barcodeId = binding.barcodeId
 
 
-        // firebase firestore get user data by id
+        // Define barcode fragment elements
+        var barcode = binding.barcode
+        var barcodeId = binding.barcodeId
 
-        var db = FirebaseFirestore.getInstance()
 
+        // get user data from firestore
         db.collection("users").document(userid.toString())
             .get()
             .addOnSuccessListener { document ->
@@ -67,6 +117,18 @@ class CardFragment : Fragment() {
             .addOnFailureListener { exception ->
                 println("Error getting documents: $exception")
             }
+
+
+        // on click listener for the logout button
+        _binding!!.logoutBtn.setOnClickListener {
+            // clear shared preferences
+            sharedPref.edit().clear().apply()
+
+            // navigate to login page
+            findNavController().navigate(R.id.action_CardFragment_to_LoginFragment)
+        }
+
+
 
         return binding.root
     }
