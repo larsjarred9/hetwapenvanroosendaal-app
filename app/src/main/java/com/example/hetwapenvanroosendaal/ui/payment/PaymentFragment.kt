@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.hetwapenvanroosendaal.R
 import com.example.hetwapenvanroosendaal.databinding.FragmentPaymentBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import java.time.LocalDate
 
 class PaymentFragment : Fragment() {
 
@@ -33,6 +34,49 @@ class PaymentFragment : Fragment() {
         //Get image view by id
         val ivPayment = _binding!!.imgPayment
 
+
+        // Initialize shared preferences
+        val sharedPref = this.requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+
+        // get user id from shared preferences
+        val userid = (sharedPref.getString("user", "0"))
+
+        // Initalize db
+        var db = FirebaseFirestore.getInstance()
+
+        // Check if user has a valid subscription
+        db.collection("users").document(userid.toString()).collection("subscription")
+            .get()
+            .addOnSuccessListener { documents ->
+                // foreach document in the collection print
+                for (document in documents) {
+
+                    // get the month & startdate from the document
+                    val startDate = document.data["startDate"].toString()
+                    val months = document.data["months"].toString().toInt()
+
+                    // Parsing the startDate string into a LocalDate object
+                    val localDate = LocalDate.parse(startDate)
+
+                    // Adding the specified number of months to the startDate
+                    val futureDate = localDate.plusMonths(months.toLong())
+
+                    // Checking if the date is before or equal to the current date
+                    if (futureDate.isBefore(LocalDate.now()) || futureDate.isEqual(LocalDate.now())) {
+                        // do nothing
+                    }
+                    else {
+                        // Send user to card page
+                        findNavController().navigate(R.id.action_PaymentFragment_to_CardFragment)
+                        break
+                    }
+                }
+            }
+            .addOnFailureListener { exception ->
+                println("Error getting documents: $exception")
+            }
+
+        // Create variables for price and month
         var price: Int
         var month: Int
 
@@ -54,15 +98,8 @@ class PaymentFragment : Fragment() {
                 price = 920
             }
         }
-        // Initialize shared preferences
-        val sharedPref = this.requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-
-        // get user id from shared preferences
-        val userid = (sharedPref.getString("user", "0"))
 
         ivPayment.setOnClickListener {
-
-            var db = FirebaseFirestore.getInstance()
 
             // get current date (yy-mm-dd)
             val date = java.time.LocalDate.now().toString()
