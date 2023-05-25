@@ -25,7 +25,7 @@
 
         <action
             android:id="@+id/action_RegisterFragment_to_LoginFragment"
-            app:destination="@id/navigation_savingscard" />
+            app:destination="@id/navigation_login" />
     </fragment>
 
     <fragment
@@ -46,11 +46,10 @@
         tools:layout="@layout/fragment_payment" />
 
     <fragment
-        android:id="@+id/navigation_savingscard"
+        android:id="@+id/navigation_login"
         android:name="com.example.hetwapenvanroosendaal.ui.login.LoginFragment"
         android:label="@string/title_login"
         tools:layout="@layout/fragment_login">
-
         <action
             android:id="@+id/action_LoginFragment_to_SubFragment"
             app:destination="@id/navigation_subscription" />
@@ -58,6 +57,20 @@
         <action
             android:id="@+id/action_LoginFragment_to_RegisterFragment"
             app:destination="@id/navigation_register" />
+        <action
+            android:id="@+id/action_LoginFragment_to_CardFragment"
+            app:destination="@id/navigation_savingscard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_savingscard"
+        android:name="com.example.hetwapenvanroosendaal.ui.card.CardFragment"
+        android:label="@string/title_card"
+        tools:layout="@layout/fragment_card">
+
+        <action
+            android:id="@+id/action_CardFragment_to_LoginFragment"
+            app:destination="@id/navigation_login" />
     </fragment>
   
     <fragment

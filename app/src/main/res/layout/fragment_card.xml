@@ -40,71 +40,67 @@
                 android:orientation="vertical"
                 tools:ignore="PxUsage">
 
-                <EditText
-                    android:id="@+id/firstNameField"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
                     android:layout_marginBottom="50px"
-                    android:ems="10"
-                    android:hint="@string/voornaam"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+                    android:background="@color/white">
 
-                <EditText
-                    android:id="@+id/lastNameField"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="50px"
-                    android:ems="10"
-                    android:hint="@string/achternaam"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+                    <ImageView
+                        android:id="@+id/barcode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="50px"
+                        android:background="@color/white"
+                        android:paddingTop="55px"
+                        app:srcCompat="@drawable/barcode" />
 
-                <EditText
-                    android:id="@+id/emailField"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="50px"
-                    android:ems="10"
-                    android:hint="@string/emailadres"
-                    android:importantForAutofill="no"
-                    android:inputType="textEmailAddress"
-                    android:minHeight="48dp"
-                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+                    <TextView
+                        android:id="@+id/barcodeId"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:text=""
+                        android:textSize="50px"
+                        android:textColor="@color/black"
+                        android:paddingBottom="35px"
+                        android:textAlignment="center" />
 
-                <EditText
-                    android:id="@+id/passwordFielkd"
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/subscriptionInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="200px"
+                    android:textColor="@color/white"
+                    android:text="@string/loading" />
+
+                <TextView
+                    android:id="@+id/periodHeading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PERIODE"
+                    android:fontFamily="@font/oswald_bold"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/periodTxt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="50px"
-                    android:ems="10"
-                    android:hint="@string/wachtwoord"
-                    android:importantForAutofill="no"
-                    android:inputType="textPassword"
-                    android:minHeight="48dp"
-                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+                    android:text="@string/loading"
+                    android:textColor="@color/white" />
 
                 <Button
-                    android:id="@+id/loginBtn"
-                    android:layout_width="match_parent"
+                    android:id="@+id/logoutBtn"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="400px"
-                    android:text="@string/registreren"
+                    android:text="@string/logout"
                     android:textColor="@color/white"
                     tools:ignore="RtlHardcoded,TextContrastCheck,VisualLintButtonSize" />
 
-                <TextView
-                    android:id="@+id/loginLink"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50px"
-                    android:textAlignment="viewEnd"
-                    android:text="@string/wel_account"
-                    tools:ignore="TextContrastCheck" />
             </LinearLayout>
 
             <include
