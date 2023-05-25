@@ -47,7 +47,9 @@ class CardFragment : Fragment() {
         }
 
         // Define period variable
-        var period : String = ""
+        var period: String? = null
+        var month: Int? = null
+        var usage = 0
 
         // firestore instance
         var db = FirebaseFirestore.getInstance()
@@ -61,7 +63,8 @@ class CardFragment : Fragment() {
 
                     // get the month & startdate from the document
                     val startDate = document.data["startDate"].toString()
-                    val months = document.data["months"].toString()
+                    val months = document.data["months"].toString().toInt()
+                    val used = document.data["used"].toString().toInt()
 
                     // Parsing the startDate string into a LocalDate object
                     val localDate = LocalDate.parse(startDate)
@@ -76,25 +79,35 @@ class CardFragment : Fragment() {
                     else {
                         // Set the period variable to the futureDate
                         period = futureDate.toString()
+                        month = months
+                        usage = used
+                        break
                     }
+                }
+
+                // check if period is not empty
+                if (period != null && period!!.isNotEmpty()) {
+                    // set period to active period text
+                    var periodTxt = binding.periodTxt
+                    periodTxt.text = "Je abonnement is geldig tot " + period + "."
+
+                    // Get the amount of beers the user has left
+                    var bier = (16 * month!!) // 16 beers per month
+                    bier = (bier - usage) // subtract the amount of beers the user has used
+
+
+                    // Define subscription fragment elements
+                    var subscriptionInfo = binding.subscriptionInfo
+                    subscriptionInfo.text = "Je hebt nog recht op "+ bier +" biertjes tijdens deze abonnements periode."
+                }
+                else {
+                    // @TODO: Send user to the subscription page to renew their subscription
                 }
             }
             .addOnFailureListener { exception ->
                 println("Error getting documents: $exception")
             }
 
-
-        // check if period is not empty @TODO: period is currently empty because the firestore query is async
-        if (period.isNotEmpty()) {
-            var periodTxt = binding.periodTxt
-            periodTxt.text = "Je abonnement is geldig tot " + period + "."
-        }
-        else {
-            // @TODO: Send user to the subscription page to renew their subscription
-        }
-
-        val barcode = binding.barcode
-        val barcodeId = binding.barcodeId
 
 
         // Define barcode fragment elements
