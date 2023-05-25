@@ -1,14 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/brown"
     tools:context=".ui.information.InformationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
+        android:id="@+id/mainScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="ScrollViewCount,SpeakableTextPresentCheck">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/homeHeader"
+                layout="@layout/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="209dp"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp">
+
+                <ImageView
+                    android:id="@+id/bar"
+                    android:layout_width="176dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/barimage" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="32dp"
+                    android:paddingTop="24dp">
+
+
+                    <TextView
+                        android:id="@+id/Headertext1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/oswald_bold"
+                        android:paddingBottom="4dp"
+                        android:text="OPENINGSTIJDEN"
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/Regulartext1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="116dp"
+                        android:text="Ma:    09.30u – 02.00\nDi:      Gesloten\nWoe:  09.30u – 02.00\nDo:     09.30u – 02.00\nVrij:    09.30u – 02.00\nZa:     09.30u – 02.00\nZo:     09.30u – 02.00"
+                        android:textColor="@color/white"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="151dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingLeft="28dp">
+
+                    <TextView
+                        android:id="@+id/Headertext2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/oswald_bold"
+                        android:paddingBottom="4dp"
+                        android:text="ONS VERHAAL"
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
+
+
+                    <TextView
+                        android:id="@+id/Regulartext2"
+                        android:layout_width="175dp"
+                        android:layout_height="wrap_content"
+                        android:text="Het Wapen van Roosendaal is al ruim 50 jaar een gezellig modern bruin café in hartje Roosendaal. Een kroeg die voor iedereen wat te bieden heeft. Hele generaties groeiden op in en bij het Wapen, zowel voor als achter de bar!"
+                        android:textColor="@color/white"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
+                    android:paddingRight="14dp"
+                    android:src="@drawable/barista" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="26dp"
+                android:paddingRight="14dp"
+                android:text="Het is allemaal begonnen met tante Jopie en Pierre. Zij toverden in 1970 Hotel Hermans om tot Biljartcafé het Wapen van Roosendaal. Toen in 1986 naast Henri ook Anja als vennoot in het bedrijf kwam, besloten Jopie en Pierre ermee te stoppen.\nHenri en Anja sloegen vanaf dat moment een andere weg in. Ze besloten minder met eten te gaan doen en er meer een café van te maken. In 2002 werd er een grote aanbouw geplaatst om biljarters meer plek te geven en een feestzaal en voorraadruimte te creëren.\n\nNa vanaf haar veertiende bij haar ouders in het café gewerkt te hebben, werd Maaike in 2007 mede-eigenaar."
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                android:paddingBottom="32dp"/>
+
+            <include
+                android:id="@+id/bottomNtf"
+                layout="@layout/bottom_ntf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/homeHeader"
+                app:layout_constraintVertical_bias="0.863" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

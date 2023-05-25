@@ -31,7 +31,6 @@ class LoginFragment : Fragment() {
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
-
         //Set the header texts of the page
         _binding!!.homeHeader.pageTitle.text = requireContext().getString(R.string.login)
         _binding!!.homeHeader.pageDescription.text = requireContext().getString(R.string.login_description)
@@ -44,8 +43,7 @@ class LoginFragment : Fragment() {
 
         // check if user id is set and not empty
         if (userid != null && userid != "0") {
-
-            findNavController().navigate(R.id.action_LoginFragment_to_CardFragment)
+            findNavController().navigate(R.id.action_LoginFragment_to_SubFragment)
         }
 
         // on click listener for the registerLink
@@ -74,8 +72,7 @@ class LoginFragment : Fragment() {
                     editor.putString("user", userId.toString()) // Add the user id
                     editor.apply()
 
-                    // Redirect to the savings fragment
-                    findNavController().navigate(R.id.action_LoginFragment_to_CardFragment)
+                    findNavController().navigate(R.id.action_LoginFragment_to_SubFragment)
                 },
                 { error ->
                     println(error)
