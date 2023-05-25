@@ -9,12 +9,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.android.volley.VolleyLog
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.hetwapenvanroosendaal.R
 import com.example.hetwapenvanroosendaal.databinding.FragmentRegisterBinding
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import org.json.JSONObject
 import java.net.URLEncoder
 import java.util.Random
@@ -105,9 +105,8 @@ class RegisterFragment : Fragment() {
             val stringRequest = object : StringRequest(
                 Method.POST, url,
                 { response ->
-                    Log.e(VolleyLog.TAG, response.toString())
                     // firestore db instance
-                    val db = FirebaseFirestore.getInstance()
+                    val db = Firebase.firestore
 
                     // create a new user in the firestore db
                     val user = hashMapOf(
