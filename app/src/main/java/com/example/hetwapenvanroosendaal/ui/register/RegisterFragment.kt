@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.volley.VolleyLog
@@ -44,13 +45,58 @@ class RegisterFragment : Fragment() {
         }
 
         // on click listener for the register button
-        _binding!!.loginBtn.setOnClickListener {
+        _binding!!.registerBtn.setOnClickListener {
 
             val url = "https://hetwapen.projects.adainforma.tk/api/v1/register"
+
             val firstName = binding.firstNameField.text.toString()
             val lastName = binding.lastNameField.text.toString()
             val email = binding.emailField.text.toString()
             val password = binding.passwordFielkd.text.toString()
+
+            //Validation status
+            var isFormValid = true
+
+            //Check empty
+            if (firstName.isEmpty()) {
+                //Set field error
+                binding.firstNameField.error = "Please enter your first name"
+                //Update validation status
+                isFormValid = false
+            }
+
+            //Check empty
+            if (lastName.isEmpty()) {
+                //Set field error
+                binding.lastNameField.error = "Please enter your last name"
+                //Update validation status
+                isFormValid = false
+            }
+
+            //Check empty and valid email
+            if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                //Set field error
+                binding.emailField.error = "Please enter a valid email address"
+                //Update validation status
+                isFormValid = false
+            }
+
+            //Regex password pattern
+            val passwordPattern = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@\$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}\$".toRegex()
+            //Check empty and check if password matches regular expression
+            if (password.isEmpty() || !password.matches(passwordPattern)) {
+                //Set field error
+                binding.passwordFielkd.error = "Password must be at least 8 characters and include at least one letter, one number, and one special character"
+                //Update validation status
+                isFormValid = false
+            }
+
+            //If form is not successfully validated
+            if (!isFormValid) {
+                //Show error and stop code
+                Toast.makeText(this.requireContext(), "Please correct the errors above", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             val barcode = generateRandomNumber()
 
@@ -78,7 +124,8 @@ class RegisterFragment : Fragment() {
                     db.collection("users").document(userId.toString())
                         .set(user)
                         .addOnSuccessListener {
-
+                            //Success message
+                            Toast.makeText(this.requireContext(), "Your account has been successfully created", Toast.LENGTH_SHORT).show()
                             // redirect user to the login page after successful registration
                             findNavController().navigate(R.id.action_RegisterFragment_to_LoginFragment)
                         }
@@ -121,7 +168,7 @@ class RegisterFragment : Fragment() {
         return binding.root
     }
 
-    fun generateRandomNumber(): String {
+    private fun generateRandomNumber(): String {
         val timestamp = System.currentTimeMillis().toString()
         val random = Random()
         val stringBuilder = StringBuilder()
