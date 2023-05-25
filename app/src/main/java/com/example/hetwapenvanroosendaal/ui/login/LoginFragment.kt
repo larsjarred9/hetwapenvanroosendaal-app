@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.volley.toolbox.StringRequest
@@ -55,8 +56,35 @@ class LoginFragment : Fragment() {
         _binding!!.loginBtn.setOnClickListener {
 
             val url = "https://hetwapen.projects.adainforma.tk/api/v1/login"
+
+            //Validation status
+            var isFormValid = true
+
             val email = binding.emailField.text.toString()
             val password = binding.passwordFielkd.text.toString()
+
+            //If username field is empty
+            if (email.isEmpty()) {
+                //Set field error
+                binding.emailField.error = "Please enter your e-mail address"
+                //Set validation status
+                isFormValid = false
+            }
+
+            //If password field is empty
+            if (password.isEmpty()) {
+                //Set field error
+                binding.passwordFielkd.error = "Please enter your password"
+                //Set validation status
+                isFormValid = false
+            }
+
+            //If form is not successfully validated
+            if (!isFormValid) {
+                //Show error and stop code
+                Toast.makeText(this.requireContext(), "Please correct the errors above", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             val requestQueue = Volley.newRequestQueue(this.requireContext())
 
