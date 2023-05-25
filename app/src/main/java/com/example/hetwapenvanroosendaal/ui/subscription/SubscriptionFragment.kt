@@ -1,5 +1,6 @@
 package com.example.hetwapenvanroosendaal.ui.subscription
 
+import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.util.TypedValue
@@ -10,6 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.hetwapenvanroosendaal.R
 import com.example.hetwapenvanroosendaal.databinding.FragmentSubscriptionBinding
+import com.google.firebase.firestore.FirebaseFirestore
+import java.time.LocalDate
 
 class SubscriptionFragment : Fragment() {
 
@@ -36,6 +39,47 @@ class SubscriptionFragment : Fragment() {
             _binding!!.imgQuarter,
             _binding!!.imgYear
         )
+
+        // Initialize shared preferences
+        val sharedPref = this.requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+
+        // get user id from shared preferences
+        val userid = (sharedPref.getString("user", "0"))
+
+        // Initalize db
+        var db = FirebaseFirestore.getInstance()
+
+        // Check if user has a valid subscription
+        db.collection("users").document(userid.toString()).collection("subscription")
+            .get()
+            .addOnSuccessListener { documents ->
+                // foreach document in the collection print
+                for (document in documents) {
+
+                    // get the month & startdate from the document
+                    val startDate = document.data["startDate"].toString()
+                    val months = document.data["months"].toString().toInt()
+
+                    // Parsing the startDate string into a LocalDate object
+                    val localDate = LocalDate.parse(startDate)
+
+                    // Adding the specified number of months to the startDate
+                    val futureDate = localDate.plusMonths(months.toLong())
+
+                    // Checking if the date is before or equal to the current date
+                    if (futureDate.isBefore(LocalDate.now()) || futureDate.isEqual(LocalDate.now())) {
+                        // do nothing
+                    }
+                    else {
+                        // Send user to card page
+                        findNavController().navigate(R.id.action_PaymentFragment_to_CardFragment)
+                        break
+                    }
+                }
+            }
+            .addOnFailureListener { exception ->
+                println("Error getting documents: $exception")
+            }
 
         //Init selected image
         var selectedImage: String? = null

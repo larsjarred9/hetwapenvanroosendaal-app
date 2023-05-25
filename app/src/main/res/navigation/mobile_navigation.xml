@@ -37,13 +37,23 @@
         <action
             android:id="@+id/action_subFragment_to_payFragment"
             app:destination="@id/navigation_payment" />
+
+        <action
+            android:id="@+id/action_PaymentFragment_to_CardFragment"
+            app:destination="@id/navigation_savingscard" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_payment"
         android:name="com.example.hetwapenvanroosendaal.ui.payment.PaymentFragment"
         android:label="Betaling"
-        tools:layout="@layout/fragment_payment" />
+        tools:layout="@layout/fragment_payment" >
+
+        <action
+            android:id="@+id/action_PaymentFragment_to_CardFragment"
+            app:destination="@id/navigation_savingscard" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_login"
@@ -71,6 +81,10 @@
         <action
             android:id="@+id/action_CardFragment_to_LoginFragment"
             app:destination="@id/navigation_login" />
+
+        <action
+            android:id="@+id/action_CardFragment_to_SubscriptionFragment"
+            app:destination="@id/navigation_subscription" />
     </fragment>
   
     <fragment
