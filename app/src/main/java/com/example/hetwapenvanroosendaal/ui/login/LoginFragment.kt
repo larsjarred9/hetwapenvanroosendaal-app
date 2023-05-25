@@ -103,6 +103,7 @@ class LoginFragment : Fragment() {
                     findNavController().navigate(R.id.action_LoginFragment_to_SubFragment)
                 },
                 { error ->
+                    Toast.makeText(this.requireContext(), "The combination of e-mail and password are incorrect", Toast.LENGTH_SHORT).show()
                     println(error)
                 }
             ) {
