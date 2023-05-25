@@ -1,4 +1,4 @@
-package com.example.hetwapenvanroosendaal.ui.login
+package com.example.hetwapenvanroosendaal.ui.register
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -34,7 +34,6 @@ class RegisterFragment : Fragment() {
     ): View {
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
 
-
         //Set the header texts of the page
         _binding!!.homeHeader.pageTitle.text = requireContext().getString(R.string.register)
         _binding!!.homeHeader.pageDescription.text = requireContext().getString(R.string.register_description)
@@ -44,11 +43,8 @@ class RegisterFragment : Fragment() {
             findNavController().navigate(R.id.action_RegisterFragment_to_LoginFragment)
         }
 
-
         // on click listener for the register button
         _binding!!.loginBtn.setOnClickListener {
-
-            Log.e(VolleyLog.TAG, "Button is clicked")
 
             val url = "https://hetwapen.projects.adainforma.tk/api/v1/register"
             val firstName = binding.firstNameField.text.toString()
