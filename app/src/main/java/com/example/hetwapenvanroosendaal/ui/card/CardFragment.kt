@@ -101,7 +101,9 @@ class CardFragment : Fragment() {
                     subscriptionInfo.text = "Je hebt nog recht op "+ bier +" biertjes tijdens deze abonnements periode."
                 }
                 else {
-                    // @TODO: Send user to the subscription page to renew their subscription
+                    // Send user to subscription page
+                    findNavController().navigate(R.id.action_CardFragment_to_SubscriptionFragment)
+
                 }
             }
             .addOnFailureListener { exception ->
