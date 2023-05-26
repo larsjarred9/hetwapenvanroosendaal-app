@@ -89,7 +89,7 @@
                     tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
                 <Button
-                    android:id="@+id/loginBtn"
+                    android:id="@+id/registerBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="400px"

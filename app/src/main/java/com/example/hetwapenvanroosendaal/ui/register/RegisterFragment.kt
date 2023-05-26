@@ -1,4 +1,4 @@
-package com.example.hetwapenvanroosendaal.ui.login
+package com.example.hetwapenvanroosendaal.ui.register
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,14 +6,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.android.volley.VolleyLog
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.hetwapenvanroosendaal.R
 import com.example.hetwapenvanroosendaal.databinding.FragmentRegisterBinding
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import org.json.JSONObject
 import java.net.URLEncoder
 import java.util.Random
@@ -34,7 +35,6 @@ class RegisterFragment : Fragment() {
     ): View {
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
 
-
         //Set the header texts of the page
         _binding!!.homeHeader.pageTitle.text = requireContext().getString(R.string.register)
         _binding!!.homeHeader.pageDescription.text = requireContext().getString(R.string.register_description)
@@ -44,17 +44,59 @@ class RegisterFragment : Fragment() {
             findNavController().navigate(R.id.action_RegisterFragment_to_LoginFragment)
         }
 
-
         // on click listener for the register button
-        _binding!!.loginBtn.setOnClickListener {
-
-            Log.e(VolleyLog.TAG, "Button is clicked")
+        _binding!!.registerBtn.setOnClickListener {
 
             val url = "https://hetwapen.projects.adainforma.tk/api/v1/register"
+
             val firstName = binding.firstNameField.text.toString()
             val lastName = binding.lastNameField.text.toString()
             val email = binding.emailField.text.toString()
             val password = binding.passwordFielkd.text.toString()
+
+            //Validation status
+            var isFormValid = true
+
+            //Check empty
+            if (firstName.isEmpty()) {
+                //Set field error
+                binding.firstNameField.error = "Please enter your first name"
+                //Update validation status
+                isFormValid = false
+            }
+
+            //Check empty
+            if (lastName.isEmpty()) {
+                //Set field error
+                binding.lastNameField.error = "Please enter your last name"
+                //Update validation status
+                isFormValid = false
+            }
+
+            //Check empty and valid email
+            if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                //Set field error
+                binding.emailField.error = "Please enter a valid email address"
+                //Update validation status
+                isFormValid = false
+            }
+
+            //Regex password pattern
+            val passwordPattern = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@\$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}\$".toRegex()
+            //Check empty and check if password matches regular expression
+            if (password.isEmpty() || !password.matches(passwordPattern)) {
+                //Set field error
+                binding.passwordFielkd.error = "Password must be at least 8 characters and include at least one letter, one number, and one special character"
+                //Update validation status
+                isFormValid = false
+            }
+
+            //If form is not successfully validated
+            if (!isFormValid) {
+                //Show error and stop code
+                Toast.makeText(this.requireContext(), "Please correct the errors above", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             val barcode = generateRandomNumber()
 
@@ -63,9 +105,8 @@ class RegisterFragment : Fragment() {
             val stringRequest = object : StringRequest(
                 Method.POST, url,
                 { response ->
-                    Log.e(VolleyLog.TAG, response.toString())
                     // firestore db instance
-                    val db = FirebaseFirestore.getInstance()
+                    val db = Firebase.firestore
 
                     // create a new user in the firestore db
                     val user = hashMapOf(
@@ -82,7 +123,8 @@ class RegisterFragment : Fragment() {
                     db.collection("users").document(userId.toString())
                         .set(user)
                         .addOnSuccessListener {
-
+                            //Success message
+                            Toast.makeText(this.requireContext(), "Your account has been successfully created", Toast.LENGTH_SHORT).show()
                             // redirect user to the login page after successful registration
                             findNavController().navigate(R.id.action_RegisterFragment_to_LoginFragment)
                         }
@@ -125,7 +167,7 @@ class RegisterFragment : Fragment() {
         return binding.root
     }
 
-    fun generateRandomNumber(): String {
+    private fun generateRandomNumber(): String {
         val timestamp = System.currentTimeMillis().toString()
         val random = Random()
         val stringBuilder = StringBuilder()
