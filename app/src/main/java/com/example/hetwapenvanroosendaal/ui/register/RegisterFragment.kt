@@ -57,18 +57,21 @@ class RegisterFragment : Fragment() {
             //Validation status
             var isFormValid = true
 
-            //Check empty
-            if (firstName.isEmpty()) {
+            //Regex only letters
+            val onlyLettersPattern = "^[a-zA-Z]+\$".toRegex()
+
+            //Check empty and only letters
+            if (firstName.isEmpty() || !firstName.matches(onlyLettersPattern)) {
                 //Set field error
-                binding.firstNameField.error = "Please enter your first name"
+                binding.firstNameField.error = "Please enter a valid first name"
                 //Update validation status
                 isFormValid = false
             }
 
-            //Check empty
-            if (lastName.isEmpty()) {
+            //Check empty and only letters
+            if (lastName.isEmpty() || !lastName.matches(onlyLettersPattern)) {
                 //Set field error
-                binding.lastNameField.error = "Please enter your last name"
+                binding.lastNameField.error = "Please enter a valid last name"
                 //Update validation status
                 isFormValid = false
             }
@@ -82,11 +85,11 @@ class RegisterFragment : Fragment() {
             }
 
             //Regex password pattern
-            val passwordPattern = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@\$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}\$".toRegex()
+            val passwordPattern = "^(?=.*[a-zA-Z])(?=.*\\d)[a-zA-Z0-9]{4,8}\$".toRegex()
             //Check empty and check if password matches regular expression
             if (password.isEmpty() || !password.matches(passwordPattern)) {
                 //Set field error
-                binding.passwordFielkd.error = "Password must be at least 8 characters and include at least one letter, one number, and one special character"
+                binding.passwordFielkd.error = "Password must be between 4 and 8 characters and include letters and numbers"
                 //Update validation status
                 isFormValid = false
             }
@@ -131,6 +134,7 @@ class RegisterFragment : Fragment() {
                         .addOnFailureListener { e -> Log.w("RegisterFragment", "Error creating user values", e) }
                 },
                 { error ->
+                    Toast.makeText(this.requireContext(), "Error in form", Toast.LENGTH_SHORT).show()
                     println(error)
                 }
             ) {
